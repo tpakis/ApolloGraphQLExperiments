@@ -1,0 +1,37 @@
+query SearchRepositoriesTemp($searchQuery: String!) {
+  search(first: 50, type: REPOSITORY, query: $searchQuery) {
+    edges {
+      node {
+        ... on Repository {
+          name
+          description
+          forkCount
+          owner {
+            avatarUrl
+			login
+          }
+		  dateJoined
+		  customField
+        }
+      }
+    }
+  }
+}
+
+query SearchRepositories($searchQuery: String!) {
+  search(first: 50, type: REPOSITORY, query: $searchQuery) {
+    edges {
+      node {
+        ... on Repository {
+          name
+          description
+          forkCount
+          owner {
+            avatarUrl
+			login
+          }
+        }
+      }
+    }
+  }
+}
